@@ -361,6 +361,8 @@ DZAI_heliCrewSkills = [
 	["general",0.80,1.00]
 ];
 
+// Enable static machine gun support
+DZAI_staticMG = false;
 
 //NOTHING TO EDIT BEYOND THIS POINT
 

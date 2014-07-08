@@ -534,3 +534,7 @@ DZAI_updateUnitCount = {
 		false
 	};
 };
+
+if (DZAI_staticMG) then {
+	DZAI_spawnMG	= compile preprocessFileLineNumbers format ["%1\spawn_functions\spawn_mg.sqf",DZAI_directory];
+};
