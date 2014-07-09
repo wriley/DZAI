@@ -43,7 +43,6 @@ if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Found spaw
 
 _unitGroup = createGroup (call DZAI_getFreeSide);
 
-private ["_type","_unit","_static"];
 _type = DZAI_BanditTypes call BIS_fnc_selectRandom2;								// Select skin of AI unit
 _unit = _unitGroup createUnit [_type, _pos, [], 0, "FORM"];							// Spawn the AI unit
 _unit setPosATL _pos;
@@ -69,6 +68,9 @@ if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Spawned AI 
 _static = createVehicle [_class, _pos, [], 0, "CAN_COLLIDE"];
 _static setDir round(_dir);
 _static setPos _pos;
+
+_static addEventHandler ["GetOut",{(_this select 0) setDamage 1;}];
+_nul = _static call DZAI_protectObject;
 
 _unit moveingunner _static;
 

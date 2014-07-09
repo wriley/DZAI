@@ -26,6 +26,7 @@ if (isPlayer _killer) then {
 	_trigger = _unitGroup getVariable ["trigger",objNull];
 	_equipType = if (!isNil "_trigger") then {_trigger getVariable ["equipType",1]} else {1};
 	_weapongrade = _equipType call DZAI_getWeapongrade;
+	if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 has equipType %2 and weapongrade %3.",_unitGroup,_equipType,_weapongrade];};
 	0 = [_victim,_weapongrade] spawn DZAI_addLoot;
 	0 = [_killer,_victim,"banditKills"] call DZAI_countKills;
 } else {
