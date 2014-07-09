@@ -64,7 +64,7 @@ if (isNil "DDOPP_taser_handleHit") then {
 	_unit addEventHandler ["HandleDamage",{_this call DDOPP_taser_handleHit;_this call DZAI_AI_handledamage}];
 };
 
-[_unit, _weapongrade] call DZAI_setupLoadout;									// Assign unit loadout
+//[_unit, _weapongrade] call DZAI_setupLoadout;									// Assign unit loadout
 [_unit, _weapongrade] call DZAI_setSkills;										// Set AI skill
 [_unit, _weapongrade] spawn DZAI_autoRearm_unit;
 if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Spawned AI machine gunner type %1 with weapongrade %2 for group %3 (fnc_createGroup).",_type,_weapongrade,_unitGroup];};
