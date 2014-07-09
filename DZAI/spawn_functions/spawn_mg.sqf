@@ -42,6 +42,10 @@ _pos set [2,0];
 if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Found spawn position at %3 meters away at position %1 after %2 retries.",_pos,_attempts,(_pos distance _spawnPos)]};
 
 _unitGroup = createGroup (call DZAI_getFreeSide);
+_unitGroup setBehaviour "AWARE";
+_unitGroup setCombatMode "RED";
+//_unitGroup setSpeedMode "FULL";
+_unitGroup allowFleeing 0;
 
 _type = DZAI_BanditTypes call BIS_fnc_selectRandom2;								// Select skin of AI unit
 _unit = _unitGroup createUnit [_type, _pos, [], 0, "FORM"];							// Spawn the AI unit
