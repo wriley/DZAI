@@ -69,9 +69,9 @@ if (isNil "DDOPP_taser_handleHit") then {
 [_unit, _weapongrade] spawn DZAI_autoRearm_unit;
 if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Spawned AI machine gunner type %1 with weapongrade %2 for group %3 (fnc_createGroup).",_type,_weapongrade,_unitGroup];};
 
-_static = createVehicle [_class, _pos, [], 0, "CAN_COLLIDE"];
+_static = createVehicle [_class, _spawnPos, [], 0, "CAN_COLLIDE"];
 _static setDir round(_dir);
-_static setPos _pos;
+_static setPos _spawnPos;
 
 _static addEventHandler ["GetOut",{(_this select 0) setDamage 1;}];
 _nul = _static call DZAI_protectObject;
